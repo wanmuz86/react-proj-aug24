@@ -5,7 +5,7 @@ import { useCart } from '../../libs/context/CartContext'
 
 
 const Header = () => {
-  const {state} = useCart()
+  const {state, totalItemsInCart} = useCart()
     const navigate = useNavigate();
   return (
     <nav className="navbar navbar-expand-lg bg-danger navbar-dark">
@@ -33,7 +33,7 @@ const Header = () => {
             </li>
           </ul>
           <div className="d-flex" role="search">
-            <button className="btn btn-outline-warning" onClick={()=>navigate('/cart')}><i className="bi bi-cart-fill"></i> ({state.cart.length})</button>
+            <button className="btn btn-outline-warning" onClick={()=>navigate('/cart')}><i className="bi bi-cart-fill"></i> ({totalItemsInCart})</button>
           </div>
         </div>
       </div>

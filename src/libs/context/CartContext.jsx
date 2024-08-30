@@ -78,8 +78,13 @@ const CartProvider = ({ children }) => {
     }
     const [state, dispatch] = useReducer(cartReducer, initialState);
 
+    // Add the operation on the state and export it together with state and dispatch
+
+    const totalItemsInCart = state.cart.reduce((total, item)=> total + item.quantity, 0);
+    const totalPrice = state.cart.reduce((total, item) => total + (item.quantity * item.item.price),0);
+
     return (
-        <CartContext.Provider value={{state, dispatch}}>
+        <CartContext.Provider value={{state, dispatch, totalItemsInCart, totalPrice}}>
             {children}
         </CartContext.Provider>
     )
