@@ -7,6 +7,7 @@ import Home from './pages/Home/Home.jsx'
 import ShopCategory from './pages/ShopCategory/ShopCategory.jsx'
 import Product from './pages/Product/Product.jsx'
 import Cart from './pages/Cart/Cart.jsx'
+
 import banner1 from './assets/banner1.jpg'
 import banner2 from './assets/banner2.jpg'
 import banner3 from './assets/banner3.jpg'
