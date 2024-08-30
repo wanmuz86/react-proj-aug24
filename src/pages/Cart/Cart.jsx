@@ -1,6 +1,7 @@
 import React from 'react'
 import './Cart.css'
 import { useCart } from '../../libs/context/CartContext'
+import CartItem from '../../components/CartItem/CartItem';
 
 const Cart = () => {
   const { state } = useCart();
@@ -11,10 +12,12 @@ const Cart = () => {
         state.cart.length === 0 ?
           <p>No item in cart at the moment.</p>
           :
-          <ul>{
-            state.cart.map(val => <li key={val.id}>{val.item.title} - {val.quantity}</li>)
+          <div>
+          {
+            state.cart.map(val => <CartItem key={val.item.id} cartItem={val}/>)
           }
-          </ul>
+          </div>
+          
       }
     </div>
   )
