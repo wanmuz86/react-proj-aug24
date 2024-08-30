@@ -1,10 +1,12 @@
 import React from 'react'
 import './Header.css'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { useCart } from '../../libs/context/CartContext'
+
 
 const Header = () => {
   const {state} = useCart()
+    const navigate = useNavigate();
   return (
     <nav className="navbar navbar-expand-lg bg-danger navbar-dark">
       <div className="container">
@@ -31,7 +33,7 @@ const Header = () => {
             </li>
           </ul>
           <div className="d-flex" role="search">
-            <button className="btn btn-outline-warning"><i className="bi bi-cart-fill"></i> ({state.cart.length})</button>
+            <button className="btn btn-outline-warning" onClick={()=>navigate('/cart')}><i className="bi bi-cart-fill"></i> ({state.cart.length})</button>
           </div>
         </div>
       </div>
