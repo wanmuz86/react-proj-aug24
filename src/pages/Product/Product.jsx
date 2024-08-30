@@ -2,10 +2,16 @@ import React from 'react'
 import './Product.css'
 import { useParams } from 'react-router-dom'
 import useFetch from '../../libs/hooks/useFetch'
+import { useCart } from '../../libs/context/CartContext'
 
 const Product = () => {
   const { id } = useParams()
   const { loading, data, error } = useFetch(`https://fakestoreapi.com/products/${id}`)
+  const {dispatch} = useCart();
+
+  const addToCart = () => {
+    dispatch({type:'ADD_ITEM', payload:{item:data, quantity:1}});
+  }
 
   return (
     <div className='container py-3'>
@@ -21,7 +27,7 @@ const Product = () => {
           <h3>{data.title}</h3>
           <h5 className='text-secondary'>USD {data.price} - {data.category}</h5>
           <p>{data.description}</p>
-          <button className='btn-primary btn'>Add to Cart</button>
+          <button className='btn-primary btn' onClick={addToCart}>Add to Cart</button>
 
         </div>
         </div>
