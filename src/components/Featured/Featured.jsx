@@ -16,7 +16,7 @@ const Featured = () => {
                     <h2>Featured products</h2>
                     <div className='row'>
                         {
-                            data.map(val => <div className='col-4'><Card product={val}/></div>)
+                            data.map(val => <div className='col-4' key={val.id}><Card product={val}/></div>)
                         }
                     </div>
                 </div>}

@@ -28,7 +28,7 @@ const Header = () => {
             </li>
           </ul>
           <div className="d-flex" role="search">
-            <button className="btn btn-outline-warning"><i class="bi bi-cart-fill"></i></button>
+            <button className="btn btn-outline-warning"><i className="bi bi-cart-fill"></i></button>
           </div>
         </div>
       </div>
