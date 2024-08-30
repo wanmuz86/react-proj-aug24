@@ -17,12 +17,16 @@ const useFetch = (url) => {
             try {
                 setLoading(true)
                 const response = await axios.get(url)
-                if (response.status !== "200"){
+              
+                if (response.status !== 200){
                     throw new Error("Network response was not ok")
                 }
+        
                 setData(response.data)
+                
 
             } catch (error) {
+                console.log(error)
                 setError(error)
             }
             finally {
@@ -36,5 +40,7 @@ const useFetch = (url) => {
 
     }, [url])
 
+    return {data,loading, error}
 
 }
+export default useFetch;
