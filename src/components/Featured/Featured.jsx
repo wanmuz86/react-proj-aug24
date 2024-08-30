@@ -8,11 +8,12 @@ const Featured = () => {
     const { loading, data, error } = useFetch("https://fakestoreapi.com/products?limit=6")
 
     return (
-        <div>
+        <div className='container my-3'>
             {loading && <p>loading</p>}
             {error && <p className='text-danger'>Something is wrong</p>}
             {data &&
                 <div >
+                    <h2>Featured products</h2>
                     <div className='row'>
                         {
                             data.map(val => <div className='col-4'><Card product={val}/></div>)
