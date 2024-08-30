@@ -1,6 +1,18 @@
 import React from 'react'
+import { useCart } from '../../libs/context/CartContext'
 
 const CartItem = ({cartItem}) => {
+    const {dispatch} = useCart();
+
+    const incrementPressed = () => {
+        dispatch({type:'ADD_ITEM', payload:{item:cartItem.item, quantity:1}})
+
+    }
+
+    const decrementPressed = () => {
+        dispatch({type:'REMOVE_ITEM', payload:{item:cartItem.item, quantity:1}})
+    }
+
   return (
     <div className="card p-5 my-3">
         <div className='row'>
@@ -11,9 +23,9 @@ const CartItem = ({cartItem}) => {
                 <h4>{cartItem.item.title}</h4>
                 <p>USD {cartItem.item.price}</p>
                 <p>
-                    <button className='btn'>-</button>
+                    <button className='btn' onClick={decrementPressed}>-</button>
                     {cartItem.quantity}
-                    <button className='btn'>+</button>
+                    <button className='btn' onClick={incrementPressed}>+</button>
                 </p>
             </div>
         </div>

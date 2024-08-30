@@ -2,6 +2,6 @@
     text-decoration: none;
 }
 
-.card:hover {
+#product-card .card:hover {
     background-color: lightgrey;
 }

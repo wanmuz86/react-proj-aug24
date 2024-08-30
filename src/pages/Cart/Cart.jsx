@@ -6,7 +6,7 @@ import CartItem from '../../components/CartItem/CartItem';
 const Cart = () => {
   const { state } = useCart();
   return (
-    <div>
+    <div className='container'>
       <h2>Cart</h2>
       {
         state.cart.length === 0 ?
